@@ -64,7 +64,7 @@ export default function Additive() {
   return (
     <div>
       <AdditiveInput setAdditiveData={setAdditiveData} />
-      <AdditiveResult title={"Additive Cipher"} resultText={resultText} additiveData={additiveData} />
+      <AdditiveResult resultText={resultText} additiveData={additiveData} />
     </div>
   )
 }

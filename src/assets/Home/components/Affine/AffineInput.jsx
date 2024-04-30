@@ -4,14 +4,15 @@ import { useForm } from "react-hook-form"
 export default function AffineInput({ setAffineData}) {
     const { register, handleSubmit, reset } = useForm()
     const onSubmit = (data) => {
-        console.log(data);
         setAffineData(data);
         document.getElementById('affine-modal').showModal();
         reset();
     }
     
     return (
-        <form className="form-control bg-fuchsia-200 p-5 w-[400px]" onSubmit={handleSubmit(onSubmit)}>
+        <form className="form-control bg-gray-300 p-5 w-[400px]" onSubmit={handleSubmit(onSubmit)}>
+            <h3 className="font-semibold text-white text-xl mb-2 bg-black p-1">Affine Cipher</h3>
+            <small className="mb-3">C = (P×k1+k2) mod26 || P = ((C−k2)×k1^-1) mod26</small>
             <textarea className="textarea focus:outline-none ps-2" placeholder="Enter plain text" {...register("plainText")} required />
             <input type="text" className="focus:outline-none rounded-md p-2 my-2 placeholder:text-sm" placeholder="Enter key 1" {...register("key1")} required />
             <input type="text" className="focus:outline-none rounded-md p-2 mb-2 placeholder:text-sm" placeholder="Enter key 2" {...register("key2")} required />

@@ -71,7 +71,7 @@ export default function KeyedTransposition() {
   return (
     <div>
       <KeyedInput setKeyedTranspositionData={setKeyedTranspositionData} />
-      <KeyedResult title={"Keyed Transposition Cipher"} resultText={resultText} keyedTranspositionData={keyedTranspositionData} />
+      <KeyedResult resultText={resultText} keyedTranspositionData={keyedTranspositionData} />
     </div>
   )
 }

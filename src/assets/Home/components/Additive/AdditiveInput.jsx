@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form"
 
-export default function AdditiveInput({ setAdditiveData }) {
+export default function AdditiveInput({setAdditiveData }) {
     const { register, handleSubmit, reset } = useForm()
     const onSubmit = (data) => {
         setAdditiveData(data);
@@ -11,7 +11,9 @@ export default function AdditiveInput({ setAdditiveData }) {
     }
 
     return (
-        <form className="form-control bg-fuchsia-200 p-5 w-[400px]" onSubmit={handleSubmit(onSubmit)}>
+        <form className="form-control p-5 w-[400px] bg-gray-300  text-sm" onSubmit={handleSubmit(onSubmit)}>
+            <h3 className="font-semibold text-white text-xl  bg-black p-1 mb-2">Additive Cipher</h3>
+            <small className="mb-3">C = (P + k) mod 26 || P = (C − k) mod 26</small>
             <textarea className="textarea focus:outline-none ps-2" placeholder="Enter plain text" {...register("plainText")} required />
             <input type="text" className="focus:outline-none rounded-md p-2 my-2 placeholder:text-sm" placeholder="Enter key (1-25 OR letter)" {...register("key")} required />
             <select className="rounded-md p-2 mb-2 placeholder:text-sm focus:outline-none" {...register("optn")}>

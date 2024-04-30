@@ -60,7 +60,7 @@ export default function OneTimePad() {
   return (
     <div>
       <OneTimeInput setOneTimeData={setOneTimeData} />
-      <OneTimeResult title={"One Time Pad Cipher"} resultText={resultText} oneTimeData={oneTimeData} />
+      <OneTimeResult resultText={resultText} oneTimeData={oneTimeData} />
     </div>
   )
 }

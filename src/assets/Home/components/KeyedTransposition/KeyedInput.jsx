@@ -10,9 +10,10 @@ export default function KeyedInput({ setKeyedTranspositionData }) {
     }
 
   return (
-    <form className="form-control bg-fuchsia-200 p-5 w-[400px]" onSubmit={handleSubmit(onSubmit)}>
+    <form className="form-control bg-gray-300 p-5 w-[400px]" onSubmit={handleSubmit(onSubmit)}>
+        <h3 className="font-semibold text-white text-xl mb-5 bg-black p-1">Keyed Transposition Cipher</h3>
             <textarea className="textarea focus:outline-none ps-2" placeholder="Enter plain text" {...register("plainText")} required />
-            <input type="text" className="focus:outline-none rounded-md p-2 my-2 placeholder:text-sm" placeholder="Enter key (1-25 OR letter)" {...register("key")} required />
+            <input type="text" className="focus:outline-none rounded-md p-2 my-2 placeholder:text-sm" placeholder="Enter key sequence" {...register("key")} required />
             <select className="rounded-md p-2 mb-2 placeholder:text-sm focus:outline-none" {...register("optn")}>
                 <option defaultValue={"Encrypt"}>Encrypt</option>
                 <option>Decrypt</option>

@@ -51,7 +51,7 @@ export default function Vigenere() {
   return (
     <div>
       <VigenereInput setVigenereData={setVigenereData} />
-      <VigenereResult title={"Vigenere Cipher"} resultText={resultText} vigenereData={vigenereData} />
+      <VigenereResult resultText={resultText} vigenereData={vigenereData} />
     </div>
   )
 }

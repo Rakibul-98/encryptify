@@ -54,7 +54,7 @@ export default function Affine() {
   return (
     <div>
       <AffineInput setAffineData={setAffineData} />
-      <AffineResult title={"Affine Cipher"} resultText={resultText} affineData={affineData} />
+      <AffineResult resultText={resultText} affineData={affineData} />
     </div>
   )
 }

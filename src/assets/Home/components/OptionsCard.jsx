@@ -2,9 +2,7 @@
 
 export default function OptionsCard({ option }) {
 
-  const { name, bg, id } = option;
-
-  const bounceDirection = id % 2 === 0 ? 'animate-bounce' : 'animate-bounce-reverse';
+  const { name } = option;
 
   const handleOptions = (name) => {
     document.getElementById("options").style.display="none";
@@ -27,7 +25,7 @@ export default function OptionsCard({ option }) {
 
   return (
     <div>
-      <div onClick={() => handleOptions(name)} className={`h-36 bg-gradient-to-br ${bg} w-40 flex justify-center rounded-xl items-center ${bounceDirection} hover:animate-none cursor-pointer`}>
+      <div onClick={() => handleOptions(name)} className={`h-24 w-40 flex justify-center rounded-xl  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 items-center hover:bg-red-500 hover:border-red-500  cursor-pointer`}>
         <h3 className=" font-bold uppercase tracking-wide text-white">{name}</h3>
       </div>
     </div>
