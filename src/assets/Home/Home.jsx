@@ -4,11 +4,8 @@ import KeyedTransposition from "./components/KeyedTransposition/KeyedTranspositi
 import OneTimePad from "./components/OneTimePad/OneTimePad"
 import OptionsCard from "./components/OptionsCard"
 import Vigenere from "./components/Vigenere/Vigenere"
-import { useState } from "react";
 
 export default function Home() {
-
-    const [plainData, setPlainData] = useState([]);
 
     const options = [
         { id: 1, name: "additive", bg: "from-amber-400 to-orange-500" },
@@ -36,16 +33,16 @@ export default function Home() {
                     }
                 </div>
                 <div id="additive" style={{ display: "none" }}>
-                    <Additive plainData={plainData} setPlainData={setPlainData}/>
+                    <Additive/>
                 </div>
                 <div id="affine" style={{ display: "none" }}>
-                    <Affine />
+                    <Affine/>
                 </div>
                 <div id="vigenere" style={{ display: "none" }}>
                     <Vigenere/>
                 </div>
                 <div id="keyed-transposition" style={{ display: "none" }}>
-                    <KeyedTransposition/>
+                    <KeyedTransposition />
                 </div>
                 <div id="one-time-pad" style={{ display: "none" }}>
                     <OneTimePad/>

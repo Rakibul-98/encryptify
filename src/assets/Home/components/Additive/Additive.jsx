@@ -1,15 +1,18 @@
 /* eslint-disable react/prop-types */
 
 import Swal from "sweetalert2";
-import DisplayResult from "../DisplayResult";
-import SearchBar from "../SearchBar";
+import { useState } from "react";
+import AdditiveInput from "./AdditiveInput";
+import AdditiveResult from "./AdditiveResult";
 
-export default function Additive({ plainData, setPlainData }) {
+export default function Additive() {
+  const [additiveData, setAdditiveData] = useState([]);
 
-  let { plainText, key } = plainData;
+  let { plainText, key } = additiveData;
   if (/^[a-zA-Z]$/.test(key)) {
     key = key.toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0);
   }
+  
 
   const generateCipherText = (plainText, key) => {
     if (key < 26) {
@@ -22,10 +25,10 @@ export default function Additive({ plainData, setPlainData }) {
         });
     } 
     else {
-      document.getElementById('result-modal').close();
+      document.getElementById('additive-modal').close();
       Swal.fire({
         title: "Wrong Key!",
-        text: "Key value must be less than 26 or a single letter",
+        text: "Key value must be (0-25) or a single letter",
         icon: "error"
       });
     }
@@ -40,10 +43,10 @@ export default function Additive({ plainData, setPlainData }) {
       });
     } 
     else {
-      document.getElementById('result-modal').close();
+      document.getElementById('additive-modal').close();
       Swal.fire({
         title: "Wrong Key!",
-        text: "Key value must be less than 26 or a single letter",
+        text: "Key value must be (0-25) or a single letter",
         icon: "error"
       });
     }
@@ -51,17 +54,17 @@ export default function Additive({ plainData, setPlainData }) {
 
 
   let resultText = '';
-  if (plainData.optn?.toLowerCase() === 'encrypt') {
-    resultText = generateCipherText(plainText, key);
+  if (additiveData.optn?.toLowerCase() === 'encrypt') {
+    resultText = generateCipherText(plainText, parseInt(key));
   }
-  else if (plainData.optn?.toLowerCase() === 'decrypt') {
-    resultText = generatePlainText(plainText, key);
+  else if (additiveData.optn?.toLowerCase() === 'decrypt') {
+    resultText = generatePlainText(plainText, parseInt(key));
   }
 
   return (
     <div>
-      <SearchBar setPlainData={setPlainData} />
-      <DisplayResult title={"Additive Cipher"} resultText={resultText} plainData={plainData} />
+      <AdditiveInput setAdditiveData={setAdditiveData} />
+      <AdditiveResult title={"Additive Cipher"} resultText={resultText} additiveData={additiveData} />
     </div>
   )
 }
