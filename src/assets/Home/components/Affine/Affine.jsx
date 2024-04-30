@@ -29,12 +29,12 @@ export default function Affine() {
   const modInverse = (a, m) => {
     a = ((a % m) + m) % m;
     for (let x = 1; x < m; x++) {
-        if ((a * x) % m === 1) {
-            return x;
-        }
+      if ((a * x) % m === 1) {
+        return x;
+      }
     }
     return 1;
-}
+  }
 
   const generatePlainText = (plainText, key1, key2) => {
     return (plainText || '').replace(/[a-zA-Z]/g, char => {
