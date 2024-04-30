@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 
 export default function OneTimePad() {
   const [oneTimeData, setOneTimeData] = useState({});
-  console.log(oneTimeData);
 
   const generateCipherText = (plaintext, key) => {
     plaintext = plaintext.replace(/\s/g, '');
