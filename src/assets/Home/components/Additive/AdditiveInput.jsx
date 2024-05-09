@@ -15,7 +15,7 @@ export default function AdditiveInput({setAdditiveData }) {
             <h3 className="font-semibold text-white text-xl  bg-black p-1 mb-2">Additive Cipher</h3>
             <small className="mb-3">C = (P + k) mod 26 || P = (C − k) mod 26</small>
             <textarea className="textarea focus:outline-none ps-2" placeholder="Enter plain text" {...register("plainText")} required />
-            <input type="text" className="focus:outline-none rounded-md p-2 my-2 placeholder:text-sm" placeholder="Enter key (1-25 OR letter)" {...register("key")} required />
+            <input type="text" className="focus:outline-none rounded-md p-2 my-2 placeholder:text-sm" placeholder="Enter key" {...register("key")} required />
             <select className="rounded-md p-2 mb-2 placeholder:text-sm focus:outline-none" {...register("optn")}>
                 <option defaultValue={"Encrypt"}>Encrypt</option>
                 <option>Decrypt</option>
