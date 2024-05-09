@@ -12,7 +12,7 @@ export default function VigenereInput({ setVigenereData }) {
     return (
         <form className="form-control bg-gray-300 p-5 w-[400px]" onSubmit={handleSubmit(onSubmit)}>
             <h3 className="font-semibold text-white text-xl mb-2 bg-black p-1">Vigenere Cipher</h3>
-            <small className="mb-3">Ci = Pi + ki || Pi = Ci − ki</small>
+            <small className="mb-3">C<sub>i</sub> = (P<sub>i</sub> + k<sub>i</sub>) mod 26 || P<sub>i</sub> = (C<sub>i</sub> − k<sub>i</sub>) mod 26</small>
             <textarea className="textarea focus:outline-none ps-2" placeholder="Enter plain text" {...register("plainText")} required />
             <input type="text" className="focus:outline-none rounded-md p-2 my-2 placeholder:text-sm" placeholder="Enter key word" {...register("key")} required />
             <select className="rounded-md p-2 mb-2 placeholder:text-sm focus:outline-none" {...register("optn")}>

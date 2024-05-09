@@ -26,6 +26,22 @@ export default function OneTimePad() {
       return String.fromCharCode(encryptedCharCode);
     });
     return encryptedChars.join('');
+
+    // let cipherText = "";
+
+    // // Loop through each character (char) and key character
+    // for (let i = 0; i < plainText.length; i++) {
+    //   const char = plainText.charCodeAt(i);
+    //   const keyCode = key.charCodeAt(i);
+
+    //   // XOR operation using bitwise XOR operator (^)
+    //   const encryptedCharCode = char ^ keyCode;
+
+    //   // Convert encrypted code back to character
+    //   cipherText += String.fromCharCode(encryptedCharCode);
+    // }
+
+    // return cipherText;
   }
 
   const generatePlainText = (cipherText, key) => {
@@ -40,7 +56,7 @@ export default function OneTimePad() {
       });
       return '';
     }
-  
+
     const decryptedChars = cipherText.split('').map((char, index) => {
       const cipherTextCharCode = char.charCodeAt(0);
       const keyCharCode = key.charCodeAt(index);
@@ -48,6 +64,22 @@ export default function OneTimePad() {
       return String.fromCharCode(decryptedCharCode);
     });
     return decryptedChars.join('');
+
+    // let plainText = "";
+
+    // // Loop through each character (char) and key character
+    // for (let i = 0; i < cipherText.length; i++) {
+    //   const charCode = cipherText.charCodeAt(i);
+    //   const keyCode = key.charCodeAt(i);
+
+    //   // XOR operation using bitwise XOR operator (^)
+    //   const decryptedCharCode = charCode ^ keyCode;
+
+    //   // Convert decrypted code back to character
+    //   plainText += String.fromCharCode(decryptedCharCode);
+    // }
+
+    // return plainText;
   }
 
   let resultText = '';
