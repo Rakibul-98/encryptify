@@ -7,7 +7,7 @@ import AdditiveResult from "./AdditiveResult";
 export default function Additive() {
   const [additiveData, setAdditiveData] = useState([]);
 
-  let { plainText, key } = additiveData;
+  let { plainText, key, optn } = additiveData;
   if (/^[a-zA-Z]$/.test(key)) {
     key = (key.toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0)) % 26;
   }
@@ -18,7 +18,7 @@ export default function Additive() {
       .replace(/\s/g, '')
       .replace(/[a-zA-Z]/g, char => {
         const base = char < 'a' ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
-        const shiftedCharCode = ((char.charCodeAt(0) - base + key) % 26 + 26) % 26 + base;
+        const shiftedCharCode = ((char.charCodeAt(0) - base) + key) % 26 + base;
         return String.fromCharCode(shiftedCharCode);
       });
   };
@@ -26,17 +26,17 @@ export default function Additive() {
   const generatePlainText = (plainText, key) => {
     return (plainText || '').replace(/[a-zA-Z]/g, char => {
       const base = char < 'a' ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
-      const shiftedCharCode = ((char.charCodeAt(0) - base - key + 26) % 26 + 26) % 26 + base;
+      const shiftedCharCode = ((char.charCodeAt(0) - base) - key) % 26 + base;
       return String.fromCharCode(shiftedCharCode);
     });
   };
 
 
   let resultText = '';
-  if (additiveData.optn?.toLowerCase() === 'encrypt') {
+  if (optn?.toLowerCase() === 'encrypt') {
     resultText = generateCipherText(plainText, parseInt(key));
   }
-  else if (additiveData.optn?.toLowerCase() === 'decrypt') {
+  else if (optn?.toLowerCase() === 'decrypt') {
     resultText = generatePlainText(plainText, parseInt(key));
   }
 

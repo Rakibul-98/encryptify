@@ -21,16 +21,16 @@ export default function Affine() {
       .replace(/\s/g, '')
       .replace(/[a-zA-Z]/g, char => {
         const base = char < 'a' ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
-        const shiftedCharCode = (((char.charCodeAt(0) - base) * key1 + key2) % 26 + 26) % 26 + base;
+        const shiftedCharCode = (char.charCodeAt(0) - base * key1 + key2) % 26 + base;
         return String.fromCharCode(shiftedCharCode);
       });
   }
 
   const modInverse = (a, m) => {
-    a = ((a % m) + m) % m;
-    for (let x = 1; x < m; x++) {
-      if ((a * x) % m === 1) {
-        return x;
+    a = a % m;
+    for (let i = 1; i < m; i++) {
+      if ((a * i) % m === 1) {
+        return i;
       }
     }
     return 1;
@@ -39,7 +39,7 @@ export default function Affine() {
   const generatePlainText = (plainText, key1, key2) => {
     return (plainText || '').replace(/[a-zA-Z]/g, char => {
       const base = char < 'a' ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
-      const shiftedCharCode = (((char.charCodeAt(0) - base - key2) * modInverse(key1, 26)) % 26 + 26) % 26 + base;
+      const shiftedCharCode = ((char.charCodeAt(0) - base - key2) * modInverse(key1, 26)) % 26 + base;
       return String.fromCharCode(shiftedCharCode);
     });
   };

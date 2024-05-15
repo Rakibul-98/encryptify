@@ -19,7 +19,7 @@ export default function Vigenere() {
     const encryptedChars = plaintext.split('').map((char, index) => {
         const plaintextCharCode = char.charCodeAt(0);
         const keyCharCode = repeatedKey.charCodeAt(index);
-        const encryptedCharCode = (plaintextCharCode - 65 + keyCharCode - 65) % 26 + 65;
+        const encryptedCharCode = (plaintextCharCode + keyCharCode) % 26 + 65;
         return String.fromCharCode(encryptedCharCode);
     });
     return encryptedChars.join('');
