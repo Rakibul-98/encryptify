@@ -1,5 +1,5 @@
 
-# Encrptify
+# Encrptify (React + Vite)
 
 Encryptify is a versatile online platform designed for the encryption and decryption of plaintext messages. Offering a range of conversion options, Encryptify ensures secure communication by transforming plaintext into ciphertext and vice versa. With five distinct encryption methods available—Additive, Affine, Vigenère, Transposition, and One-Time Pad—users can select the most suitable technique for their specific security needs.
 
